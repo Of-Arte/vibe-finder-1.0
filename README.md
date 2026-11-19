@@ -1,5 +1,59 @@
-# 🎵 Music Recommender Simulation
+# VibeFinder
 
+An explainable music recommendation simulator that matches listener
+preferences against a small song catalog using weighted scoring.
+
+Each track receives points for genre and mood matches, proximity to
+the listener's target energy, and acoustic or electronic preferences.
+The system returns ranked recommendations with a plain-language
+breakdown of why each song was selected.
+
+## Features
+
+- Content-based recommendations over an 18-song CSV catalog.
+- Weighted scoring for genre, mood, energy, acousticness, and valence.
+- Exact and partial genre matching.
+- Per-song scores and human-readable recommendation explanations.
+- Command-line output comparing recommendations across listener profiles.
+- Documented experiments showing how scoring weights change rankings.
+
+## Design focus
+
+VibeFinder explores how recommendation rules shape discovery.
+Increasing genre weight favors familiar styles; increasing energy
+weight brings similarly intense tracks from other genres closer
+to the top.
+
+This is a rule-based simulation, not a trained machine-learning model.
+It uses catalog metadata rather than audio analysis, listening history,
+or collaborative filtering.
+
+## Run locally
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the simulation:
+
+```bash
+python3 -m src.main
+```
+
+Run tests:
+
+```bash
+python3 -m pytest
+```
+
+## Project origins
+
+Built for CodePath AI110 from the Music Recommender Simulation starter.
+The sections below document the scoring rules, sample recommendations,
+experiments, and limitations. See [model_card.md](model_card.md) for
+additional reflection.
 ## Project Summary
 
 VibeFinder 1.0 is a music recommendation engine designed to connect a user's personal taste profile with matching songs in a catalog. This simulation compares song characteristics—such as genre, mood, energy level, acoustic attributes, and valence—against user preferences. The system computes a numeric score for every track and presents a ranked list of top recommendations with reasons for each suggestion.
